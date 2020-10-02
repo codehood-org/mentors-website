@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -13,54 +13,67 @@ import {
   Button,
   makeStyles,
 } from "@material-ui/core";
+import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
+import FavoriteOutlinedIcon from "@material-ui/icons/FavoriteOutlined";
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 300,
   },
   avatar: {
-    width: theme.spacing(7),
-    height: theme.spacing(7),
+    width: theme.spacing(8),
+    height: theme.spacing(8),
+  },
+  cardAction: {
+    display: "flex",
+    justifyContent: "space-around",  
+    padding: 0,
   },
 }));
 
 const MentorCard = (props) => {
   const classes = useStyles();
+  const { mentor } = props;
+  const [fav, setFav] = useState(false);
+  const toggleMentorFav = () => {
+    setFav(!fav);
+  };
   return (
     <Card className={classes.root}>
       <CardHeader
         avatar={
           <Avatar aria-label="mentor" className={classes.avatar}>
-            N
+            {mentor.name[0]}
           </Avatar>
         }
-        title="Mentor Name"
-        subheader="Mentor Title"
+        action={
+          <img
+            src={`https://www.countryflags.io/${mentor.country}/flat/32.png`}
+            alt=""
+          />
+        }
+        title={mentor.name}
+        subheader={mentor.title}
       />
       <CardContent>
-        "I can help you answer the "why" questions and explain difficuilt
-        systems in simple terms."
+        <Typography variant="body2">"{mentor.message}"</Typography>
       </CardContent>
       <CardContent>
-        <Grid container justify="flex-start" spacing={1}>
-          <Grid item>
-            <Chip label="skill" variant="outlined" />
-          </Grid>
-          <Grid item>
-            <Chip label="skill" variant="outlined" />
-          </Grid>
-          <Grid item>
-            <Chip label="skill" variant="outlined" />
-          </Grid>
-          <Grid item>
-            <Chip label="skill" variant="outlined" />
-          </Grid>
+        <Grid container justify="center" spacing={1}>
+          {mentor.skills.map((skill, index) => (
+            <Grid key={index} item>
+              <Chip label={skill} variant="outlined" />
+            </Grid>
+          ))}
         </Grid>
       </CardContent>
-      <CardContent>
-        <Divider variant="middle" />
-      </CardContent>
-      <CardActions>
-        <Button>Connect</Button>
+      <Divider variant="fullWidth" />
+      <CardActions className={classes.cardAction} disableSpacing>
+        <Button href="#connect-mentor" color="primary">
+          Connect
+        </Button>
+        <IconButton onClick={toggleMentorFav}>
+          {fav ? <FavoriteOutlinedIcon color="secondary" /> : <FavoriteBorderOutlinedIcon />}
+        </IconButton>
       </CardActions>
     </Card>
   );
