@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     width: theme.spacing(8),
     height: theme.spacing(8),
+    backgroundColor: '#e45',
   },
   cardAction: {
     display: "flex",
@@ -41,7 +42,7 @@ const MentorCard = (props) => {
     <Card className={classes.root}>
       <CardHeader
         avatar={
-          <Avatar aria-label="mentor" className={classes.avatar}>
+          <Avatar src={mentor.image} aria-label="mentor"   className={classes.avatar}>
             {mentor.name[0]}
           </Avatar>
         }
