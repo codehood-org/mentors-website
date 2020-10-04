@@ -42,7 +42,7 @@ const MentorCard = (props) => {
     <Card className={classes.root}>
       <CardHeader
         avatar={
-          <Avatar src={mentor.image} aria-label="mentor"   className={classes.avatar}>
+          <Avatar src={mentor.image} aria-label="mentor" className={classes.avatar}>
             {mentor.name[0]}
           </Avatar>
         }
