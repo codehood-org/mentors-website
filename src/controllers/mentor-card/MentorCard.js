@@ -48,7 +48,7 @@ const MentorCard = (props) => {
         }
         action={
           <img
-            src={`https://www.countryflags.io/${mentor.country}/flat/32.png`}
+            src={`https://www.countryflags.io/${mentor.countryAlpha2Code}/flat/32.png`}
             alt=""
           />
         }
