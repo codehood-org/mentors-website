@@ -11,40 +11,46 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-const skills = [
-  {
-    value: "html",
-    label: "html",
-  },
-  {
-    value: "css",
-    label: "css",
-  },
-  {
-    value: "javascript",
-    label: "javascript",
-  },
-  {
-    value: ".net",
-    label: ".net",
-  },
-  {
-    value: "c#",
-    label: "c#",
-  },
-];
-const countries = [
-  {
-    value: "EG",
-    label: "Egypt",
-  },
-  {
-    value: "SA",
-    label: "Saudi Arabia",
-  },
-];
+
+const arabCountries = {
+    EG: "Egypt",
+    DZ: "Algeria",
+    SD: "Sudan",
+    IQ: "Iraq",
+    MA: "Morocco",
+    SA: "Saudi Arabia",
+    YE: "Yemen",
+    SY: "Syria",
+    TN: "Tunisia",
+    JO: "Jordan",
+    AE: "United Arab Emirates",
+    LB: "Lebanon",
+    LY: "Libya",
+    PS: "Palestine",
+    OM: "Oman",
+    KW: "Kuwait",
+    MR: "Mauritania",
+    QA: "Qatar",
+    BH: "Bahrain",
+    DJ: "Djibouti",
+    KM: "Comoros",
+}
 const MentorFilter = (props) => {
   const classes = useStyles();
+  const { mentors } = props;
+  //creating a unique skills array.
+  const skills = [...new Set(mentors.map(mentor => mentor.skills).flat())];
+  const filteredCountries = [...new Set(mentors.map(mentor => mentor.countryAlpha2Code))]
+  console.log(filteredCountries)
+  const countries = (filteredCountries.map(country => {
+      return {
+        value: country,
+        label: arabCountries[country]
+      }
+      
+      /* label: mentor.country, */
+  }));
+  console.log(countries)
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <div>
@@ -58,8 +64,8 @@ const MentorFilter = (props) => {
           helperText="filter mentors by skills"
         >
           {skills.map((skill) => (
-            <MenuItem key={skill.value} value={skill.value}>
-              {skill.label}
+            <MenuItem key={skill} value={skill}>
+              {skill}
             </MenuItem>
           ))}
         </TextField>
