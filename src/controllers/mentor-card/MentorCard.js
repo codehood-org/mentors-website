@@ -17,7 +17,8 @@ import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutline
 import FavoriteOutlinedIcon from "@material-ui/icons/FavoriteOutlined";
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 280,
+    maxWidth: 300,
+
   },
   avatar: {
     width: theme.spacing(8),
