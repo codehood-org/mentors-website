@@ -40,8 +40,8 @@ const MentorFilter = (props) => {
 
   const { mentors, filterBySkill, filterByCountry } = props;
 
-  const [skill, setSkill] = useState(null);
-  const [country, setCountry] = useState(null);
+  const [skill, setSkill] = useState(undefined);
+  const [country, setCountry] = useState(undefined);
 
   const handleSkillSelection = (e) => {
     setSkill(e.target.value);
