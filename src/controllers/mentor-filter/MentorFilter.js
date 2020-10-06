@@ -18,9 +18,13 @@ const useStyles = makeStyles(() => ({
 
 const arabCountries = {
   EG: "Egypt",
+  ----------------
   DZ: "Algeria",
+  ----------------
   SD: "Sudan",
+  ----------------
   IQ: "Iraq",
+  ----------------
   MA: "Morocco",
   SA: "Saudi Arabia",
   YE: "Yemen",
