@@ -46,9 +46,13 @@
 ```
 
   - Country Alpha 2 Code: 
+  
         EG: "Egypt"
+        ---------------
         DZ: "Algeria"
+        ---------------
         SD: "Sudan"
+        ---------------
         IQ: "Iraq"
         MA: "Morocco"
         SA: "Saudi Arabia"
