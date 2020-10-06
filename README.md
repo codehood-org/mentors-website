@@ -46,7 +46,7 @@
 ```
 
   - Country Alpha 2 Code: 
-  
+
         EG: "Egypt"
         ---------------
         DZ: "Algeria"
@@ -54,20 +54,37 @@
         SD: "Sudan"
         ---------------
         IQ: "Iraq"
+        ---------------
         MA: "Morocco"
+        ---------------
         SA: "Saudi Arabia"
+        ---------------
         YE: "Yemen"
+        ---------------
         SY: "Syria"
+        ---------------
         TN: "Tunisia"
+        ---------------
         JO: "Jordan"
+        ---------------
         AE: "United Arab Emirates"
+        ---------------
         LB: "Lebanon"
+        ---------------
         LY: "Libya"
+        ---------------
         PS: "Palestine"
+        ---------------
         OM: "Oman"
+        ---------------
         KW: "Kuwait"
+        ---------------
         MR: "Mauritania"
+        ---------------
         QA: "Qatar"
+        ---------------
         BH: "Bahrain"
+        ---------------
         DJ: "Djibouti"
+        ---------------
         KM: "Comoros"
