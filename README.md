@@ -1,4 +1,4 @@
-# <img srch="assets/logo-sm.png" width="50%" height="50%"> Codehood Mentors
+# ![Codehood logo](./assets/logo-sm.png) Codehood Mentors
 
 **Contents**:
 
