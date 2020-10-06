@@ -20,7 +20,7 @@
 
 - For mentors:
   - Mentors can register themselves by contributing to the `mentors.json` file located inside `src/data`, and make a pull request. The contribution should be a json object with the following fields:
-  ```
+```
   {
     "name": "<Mentor's name>",
     "title": "<Mentor's title>",
@@ -33,7 +33,8 @@
 ```
 
   - Here is an example:
-  ```
+  
+```
   {
     "name": "Islam Sayed",
     "title": "full-stack developer",
@@ -43,7 +44,7 @@
     "country": "Egypt",
     "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
   }
-  ```
+```
 
   - Country Alpha 2 Code: 
         EG: "Egypt"
