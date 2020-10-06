@@ -10,7 +10,7 @@ const globalTheme = createMuiTheme({});
 
 const useStyles = makeStyles(() => ({
   cardsWrapper: {
-    maxWidth: 1000,
+     maxWidth: 1200,
   }
   
 }));
@@ -40,7 +40,7 @@ function App() {
           </Grid>
           <Grid container item xs={12} sm={9} spacing={1} justify="flex-start" alignContent="flex-start" className={classes.cardsWrapper}>
             {mentors.map((mentor, index) => (
-              <Grid item key={index} xs={12}  md={4} lg={3} xl={2}  >
+              <Grid item key={index} xs={12}  md={4} lg={3}>
                 <MentorCard mentor={mentor} />
               </Grid>
             ))}
