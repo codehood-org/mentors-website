@@ -20,10 +20,10 @@ function App() {
   const [mentors, setMentors] = useState(mentorsList);
 
   const filterBySkill = (skill) => {
-    setMentors(mentorsList.filter(mentor => mentor.skills.includes(skill)))
+    setMentors(mentors.filter(mentor => mentor.skills.includes(skill)))
   } 
   const filterByCountry = (country) => {
-    setMentors(mentorsList.filter(mentor => mentor.countryAlpha2Code === country))
+    setMentors(mentors.filter(mentor => mentor.countryAlpha2Code === country))
   }
 
   return (
