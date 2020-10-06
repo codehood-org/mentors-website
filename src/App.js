@@ -10,7 +10,7 @@ const globalTheme = createMuiTheme({});
 
 const useStyles = makeStyles(() => ({
   cardsWrapper: {
-    maxWidth: 1000,
+    /* maxWidth: 1000, */
   }
   
 }));
