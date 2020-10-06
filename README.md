@@ -3,7 +3,7 @@
 **Contents**:
 
 - [Description.](#Description)
-- [How It Works.](#HowItWorks)
+- [How It Works.](#How-It-Works)
 - How To Register As A Mentor.
 - How To Contribute To The Code.
 - License.
@@ -33,7 +33,8 @@
 ```
 
   - Here is an example:
-  ```
+
+```
   {
     "name": "Islam Sayed",
     "title": "full-stack developer",
@@ -43,7 +44,7 @@
     "country": "Egypt",
     "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
   }
-  ```
+```
 
   - Country Alpha 2 Code: 
         EG: "Egypt"
