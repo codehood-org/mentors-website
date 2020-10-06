@@ -1,4 +1,4 @@
-# ![Codehood logo](./assets/logo-sm.png =50x50) Codehood Mentors
+# ![Codehood logo](./assets/logo-sm.png){ width=50% } Codehood Mentors
 
 **Contents**:
 
