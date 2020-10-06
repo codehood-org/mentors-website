@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import TextField from "@material-ui/core/TextField";
-import MenuItem from "@material-ui/core/MenuItem";
-import { makeStyles, Grid } from "@material-ui/core";
-
+import {
+  makeStyles,
+  Grid,
+  InputAdornment,
+  IconButton,
+  MenuItem,
+  TextField,
+} from "@material-ui/core";
+import ClearIcon from "@material-ui/icons/Clear";
 /* const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
@@ -57,6 +62,7 @@ const MentorFilter = (props) => {
   };
   //creating a unique skills array.
   const skills = [...new Set(mentors.map((mentor) => mentor.skills).flat())];
+  //creating a unique countries array.
   const filteredCountries = [
     ...new Set(mentors.map((mentor) => mentor.countryAlpha2Code)),
   ];
@@ -72,12 +78,27 @@ const MentorFilter = (props) => {
         <Grid item xs={12}>
           {/*FILTER BY SKILLS */}
           <TextField
+            variant="outlined"
             id="standard-select-currency"
             select
             label="Skill"
             value={skill}
             onChange={handleSkillSelection}
             helperText="filter mentors by skills"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="clear filter"
+                    //onClick={handleClickShowPassword}
+                    //onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    <ClearIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
             fullWidth
           >
             {skills.map((skill) => (
@@ -89,12 +110,27 @@ const MentorFilter = (props) => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            variant="outlined"
             id="standard-select-currency"
             select
             label="country"
             value={country}
             onChange={handleCountrySelection}
             helperText="filter mentors by country"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="clear filter"
+                    //onClick={handleClickShowPassword}
+                    //onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    <ClearIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
             fullWidth
           >
             {countries.map((country) => (
