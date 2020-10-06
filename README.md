@@ -1,4 +1,4 @@
-![Codehood logo](./assets/logo.png) # Codehood Mentors
+# ![Codehood logo](./assets/logo.png) Codehood Mentors
 
 **Contents**:
 
