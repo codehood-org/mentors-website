@@ -22,7 +22,6 @@ function App() {
   const filterMentors = (skill, country) => {
     if (skill === "" && country === "") {
       setMentors(mentorsList)
-      console.log(mentors.length)
     } else if (skill === "") {
       setMentors(mentorsList.filter(mentor => mentor.countryAlpha2Code === country))
     } else if (country === "") {
