@@ -51,8 +51,8 @@ const MentorFilter = (props) => {
 
   const { mentors, filterBySkill, filterByCountry } = props;
 
-  const [skill, setSkill] = useState(undefined);
-  const [country, setCountry] = useState(undefined);
+  const [skill, setSkill] = useState("");
+  const [country, setCountry] = useState("");
 
   const handleSkillSelection = (e) => {
     setSkill(e.target.value);
@@ -76,7 +76,12 @@ const MentorFilter = (props) => {
   });
 
   const handleSkillClear = () => {
-
+    setSkill("");
+    filterBySkill("");
+  }
+  const handleCountryClear = () => {
+    setCountry("")
+    filterByCountry("")
   }
   return (
     <form className={classes.root} noValidate autoComplete="off">
@@ -134,7 +139,7 @@ const MentorFilter = (props) => {
                   <IconButton
                     aria-label="clear filter"
                     className={classes.clearBtn}
-                    //onClick={handleClickShowPassword}
+                    onClick={handleCountryClear}
                     //onMouseDown={handleMouseDownPassword}
                     edge="end"
                   >
