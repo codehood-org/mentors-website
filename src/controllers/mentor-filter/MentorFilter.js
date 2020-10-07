@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   makeStyles,
   Grid,
@@ -49,18 +49,16 @@ const arabCountries = {
 const MentorFilter = (props) => {
   const classes = useStyles();
 
-  const { mentors, filterBySkill, filterByCountry } = props;
+  const { mentors, filterMentors } = props;
 
   const [skill, setSkill] = useState("");
   const [country, setCountry] = useState("");
 
   const handleSkillSelection = (e) => {
     setSkill(e.target.value);
-    filterBySkill(e.target.value);
   };
   const handleCountrySelection = (e) => {
     setCountry(e.target.value);
-    filterByCountry(e.target.value);
   };
   //creating a unique skills array.
   const skills = [...new Set(mentors.map((mentor) => mentor.skills).flat())];
@@ -74,14 +72,15 @@ const MentorFilter = (props) => {
       label: arabCountries[country],
     };
   });
+  useEffect(() => {
+    filterMentors(skill, country);
+  }, [skill, country])
 
   const handleSkillClear = () => {
     setSkill("");
-    filterBySkill("");
   }
   const handleCountryClear = () => {
     setCountry("")
-    filterByCountry("")
   }
   return (
     <form className={classes.root} noValidate autoComplete="off">
