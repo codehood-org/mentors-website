@@ -39,7 +39,7 @@
     "name": "Islam Sayed",
     "title": "full-stack developer",
     "message": "I can help you answer the \"why\" questions and explain difficuilt systems in simple terms.",
-    "skills": ["html", "css", "javascript"],
+    "skills": ["html", "css"],
     "countryAlpha2Code": "EG",
     "country": "Egypt",
     "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
@@ -66,7 +66,79 @@
     "name": "Mohamed Emad",
     "title": "full-stack developer",
     "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
-    "skills": ["html", "css", "javascript", "react native"],
+    "skills": ["html", "css", "react native"],
+    "countryAlpha2Code": "MA",
+    "country": "Morocco",
+    "image": ""
+  },
+  {
+    "name": "Mohammed Riad",
+    "title": ".Net developer",
+    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
+    "skills": [".net", "c#", "javascript"],
+    "countryAlpha2Code": "SA",
+    "country": "Saudi Arabia",
+    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+  },
+  {
+    "name": "Mohamed Emad",
+    "title": "full-stack developer",
+    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
+    "skills": ["html", "css", "react native"],
+    "countryAlpha2Code": "MA",
+    "country": "Morocco",
+    "image": ""
+  },
+  {
+    "name": "Mohammed Riad",
+    "title": ".Net developer",
+    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
+    "skills": [".net", "c#", "javascript"],
+    "countryAlpha2Code": "SA",
+    "country": "Saudi Arabia",
+    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+  },
+  {
+    "name": "Mohamed Emad",
+    "title": "full-stack developer",
+    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
+    "skills": ["html", "css", "react native"],
+    "countryAlpha2Code": "MA",
+    "country": "Morocco",
+    "image": ""
+  },
+  {
+    "name": "Mohammed Riad",
+    "title": ".Net developer",
+    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
+    "skills": [".net", "c#", "javascript"],
+    "countryAlpha2Code": "SA",
+    "country": "Saudi Arabia",
+    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+  },
+  {
+    "name": "Mohamed Emad",
+    "title": "full-stack developer",
+    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
+    "skills": ["html", "css", "react native"],
+    "countryAlpha2Code": "MA",
+    "country": "Morocco",
+    "image": ""
+  },
+  {
+    "name": "Mohammed Riad",
+    "title": ".Net developer",
+    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
+    "skills": [".net", "c#", "javascript"],
+    "countryAlpha2Code": "SA",
+    "country": "Saudi Arabia",
+    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+  },
+  {
+    "name": "Mohamed Emad",
+    "title": "full-stack developer",
+    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
+    "skills": ["html", "javascript", "react native"],
     "countryAlpha2Code": "MA",
     "country": "Morocco",
     "image": ""
@@ -90,75 +162,12 @@
     "image": ""
   },
   {
-    "name": "Mohammed Riad",
-    "title": ".Net developer",
+    "name": "Yahia Harony",
+    "title": "javascript developer",
     "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
-    "skills": [".net", "c#", "javascript"],
-    "countryAlpha2Code": "SA",
-    "country": "Saudi Arabia",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
-  },
-  {
-    "name": "Mohamed Emad",
-    "title": "full-stack developer",
-    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
-    "skills": ["html", "css", "javascript", "react native"],
-    "countryAlpha2Code": "MA",
-    "country": "Morocco",
-    "image": ""
-  },
-  {
-    "name": "Mohammed Riad",
-    "title": ".Net developer",
-    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
-    "skills": [".net", "c#", "javascript"],
-    "countryAlpha2Code": "SA",
-    "country": "Saudi Arabia",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
-  },
-  {
-    "name": "Mohamed Emad",
-    "title": "full-stack developer",
-    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
-    "skills": ["html", "css", "javascript", "react native"],
-    "countryAlpha2Code": "MA",
-    "country": "Morocco",
-    "image": ""
-  },
-  {
-    "name": "Mohammed Riad",
-    "title": ".Net developer",
-    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
-    "skills": [".net", "c#", "javascript"],
-    "countryAlpha2Code": "SA",
-    "country": "Saudi Arabia",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
-  },
-  {
-    "name": "Mohamed Emad",
-    "title": "full-stack developer",
-    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
-    "skills": ["html", "css", "javascript", "react native"],
-    "countryAlpha2Code": "MA",
-    "country": "Morocco",
-    "image": ""
-  },
-  {
-    "name": "Mohammed Riad",
-    "title": ".Net developer",
-    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
-    "skills": [".net", "c#", "javascript"],
-    "countryAlpha2Code": "SA",
-    "country": "Saudi Arabia",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
-  },
-  {
-    "name": "Mohamed Emad",
-    "title": "full-stack developer",
-    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
-    "skills": ["html", "css", "javascript", "react native"],
-    "countryAlpha2Code": "MA",
-    "country": "Morocco",
-    "image": ""
+    "skills": ["nodejs", "reactjs", ".net"],
+    "countryAlpha2Code": "LB",
+    "country": "Lebanon",
+    "image": "https://uifaces.co/our-content/donated/FJkauyEa.jpg"
   }
 ]

@@ -19,11 +19,16 @@ function App() {
   const classes = useStyles();
   const [mentors, setMentors] = useState(mentorsList);
 
-  const filterBySkill = (skill) => {
-    setMentors(mentorsList.filter(mentor => mentor.skills.includes(skill)))
-  } 
-  const filterByCountry = (country) => {
-    setMentors(mentorsList.filter(mentor => mentor.countryAlpha2Code === country))
+  const filterMentors = (skill, country) => {
+    if (skill === "" && country === "") {
+      setMentors(mentorsList)
+    } else if (skill === "") {
+      setMentors(mentorsList.filter(mentor => mentor.countryAlpha2Code === country))
+    } else if (country === "") {
+      setMentors(mentorsList.filter(mentor => mentor.skills.includes(skill)))
+    } else {
+      setMentors(mentorsList.filter(mentor => mentor.countryAlpha2Code === country).filter(mentor => mentor.skills.includes(skill)))
+    }
   }
 
   return (
@@ -34,8 +39,7 @@ function App() {
           <Grid container item xs={12} sm={3}>
             <MentorFilter
               mentors={mentors}
-              filterBySkill={filterBySkill}
-              filterByCountry={filterByCountry}
+              filterMentors={filterMentors}
             />
           </Grid>
           <Grid container item xs={12} sm={9} spacing={1} justify="flex-start" alignContent="flex-start" className={classes.cardsWrapper}>

@@ -1,8 +1,13 @@
-import React, { useState } from "react";
-import TextField from "@material-ui/core/TextField";
-import MenuItem from "@material-ui/core/MenuItem";
-import { makeStyles, Grid } from "@material-ui/core";
-
+import React, { useState, useEffect } from "react";
+import {
+  makeStyles,
+  Grid,
+  InputAdornment,
+  IconButton,
+  MenuItem,
+  TextField,
+} from "@material-ui/core";
+import ClearIcon from "@material-ui/icons/Clear";
 /* const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
@@ -13,7 +18,9 @@ import { makeStyles, Grid } from "@material-ui/core";
 })); */
 
 const useStyles = makeStyles(() => ({
-
+  clearBtn: {
+    marginRight: 5,
+  },
 }));
 
 const arabCountries = {
@@ -42,21 +49,20 @@ const arabCountries = {
 const MentorFilter = (props) => {
   const classes = useStyles();
 
-  const { mentors, filterBySkill, filterByCountry } = props;
+  const { mentors, filterMentors } = props;
 
-  const [skill, setSkill] = useState(undefined);
-  const [country, setCountry] = useState(undefined);
+  const [skill, setSkill] = useState("");
+  const [country, setCountry] = useState("");
 
   const handleSkillSelection = (e) => {
     setSkill(e.target.value);
-    filterBySkill(e.target.value);
   };
   const handleCountrySelection = (e) => {
     setCountry(e.target.value);
-    filterByCountry(e.target.value);
   };
   //creating a unique skills array.
   const skills = [...new Set(mentors.map((mentor) => mentor.skills).flat())];
+  //creating a unique countries array.
   const filteredCountries = [
     ...new Set(mentors.map((mentor) => mentor.countryAlpha2Code)),
   ];
@@ -66,18 +72,46 @@ const MentorFilter = (props) => {
       label: arabCountries[country],
     };
   });
+  useEffect(() => {
+    filterMentors(skill, country);
+  }, [skill, country])
+
+  const handleSkillClear = () => {
+    setSkill("");
+  }
+  const handleCountryClear = () => {
+    setCountry("")
+  }
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <Grid container>
         <Grid item xs={12}>
           {/*FILTER BY SKILLS */}
           <TextField
+            variant="outlined"
             id="standard-select-currency"
             select
             label="Skill"
             value={skill}
             onChange={handleSkillSelection}
             helperText="filter mentors by skills"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  {skill && (
+                  <IconButton
+                    aria-label="clear filter"
+                    className={classes.clearBtn}
+                    onClick={handleSkillClear}
+                    //onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    <ClearIcon />
+                  </IconButton>
+                  )}
+                </InputAdornment>
+              ),
+            }}
             fullWidth
           >
             {skills.map((skill) => (
@@ -89,12 +123,31 @@ const MentorFilter = (props) => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            variant="outlined"
             id="standard-select-currency"
             select
             label="country"
             value={country}
             onChange={handleCountrySelection}
             helperText="filter mentors by country"
+            InputProps={{
+              endAdornment: (
+                
+                <InputAdornment position="end">
+                  {country && (
+                  <IconButton
+                    aria-label="clear filter"
+                    className={classes.clearBtn}
+                    onClick={handleCountryClear}
+                    //onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    <ClearIcon />
+                  </IconButton>
+                  )}
+                </InputAdornment>
+              ),
+            }}
             fullWidth
           >
             {countries.map((country) => (
