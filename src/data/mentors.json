@@ -160,5 +160,14 @@
     "countryAlpha2Code": "MA",
     "country": "Morocco",
     "image": ""
+  },
+  {
+    "name": "Yahia Harony",
+    "title": "javascript developer",
+    "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
+    "skills": ["nodejs", "reactjs", ".net"],
+    "countryAlpha2Code": "LB",
+    "country": "Lebanon",
+    "image": "https://uifaces.co/our-content/donated/FJkauyEa.jpg"
   }
 ]
