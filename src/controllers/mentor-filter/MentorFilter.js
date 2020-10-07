@@ -18,7 +18,9 @@ import ClearIcon from "@material-ui/icons/Clear";
 })); */
 
 const useStyles = makeStyles(() => ({
-
+  clearBtn: {
+    marginRight: 5,
+  },
 }));
 
 const arabCountries = {
@@ -72,6 +74,10 @@ const MentorFilter = (props) => {
       label: arabCountries[country],
     };
   });
+
+  const handleSkillClear = () => {
+
+  }
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <Grid container>
@@ -88,14 +94,17 @@ const MentorFilter = (props) => {
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
+                  {skill && (
                   <IconButton
                     aria-label="clear filter"
-                    //onClick={handleClickShowPassword}
+                    className={classes.clearBtn}
+                    onClick={handleSkillClear}
                     //onMouseDown={handleMouseDownPassword}
                     edge="end"
                   >
                     <ClearIcon />
                   </IconButton>
+                  )}
                 </InputAdornment>
               ),
             }}
@@ -119,15 +128,19 @@ const MentorFilter = (props) => {
             helperText="filter mentors by country"
             InputProps={{
               endAdornment: (
+                
                 <InputAdornment position="end">
+                  {country && (
                   <IconButton
                     aria-label="clear filter"
+                    className={classes.clearBtn}
                     //onClick={handleClickShowPassword}
                     //onMouseDown={handleMouseDownPassword}
                     edge="end"
                   >
                     <ClearIcon />
                   </IconButton>
+                  )}
                 </InputAdornment>
               ),
             }}
