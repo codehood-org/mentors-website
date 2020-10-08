@@ -26,6 +26,9 @@ const useStyles = makeStyles(() => ({
   title: {
     flexGrow: 1,
   },
+  containerMain: {
+    padding: 24,
+  }
 }));
 
 function App() {
@@ -77,7 +80,7 @@ function App() {
             </FormGroup>
           </Toolbar>
         </AppBar>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} className={classes.containerMain}>
           <Grid container item xs={12} sm={3}>
             <MentorFilter mentors={mentors} filterMentors={filterMentors} />
           </Grid>
