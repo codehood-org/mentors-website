@@ -51,6 +51,7 @@ const MentorFilter = (props) => {
 
   const { mentors, filterMentors } = props;
 
+
   const [skill, setSkill] = useState("");
   const [country, setCountry] = useState("");
 
@@ -64,14 +65,17 @@ const MentorFilter = (props) => {
   const skills = [...new Set(mentors.map((mentor) => mentor.skills).flat())];
   //creating a unique countries array.
   const filteredCountries = [
-    ...new Set(mentors.map((mentor) => mentor.countryAlpha2Code)),
+...new Set(mentors.map((mentor) => mentor.countryAlpha2Code)),
   ];
+
   const countries = filteredCountries.map((country) => {
     return {
       value: country,
       label: arabCountries[country],
     };
   });
+
+  // console.log(countries, 'here is')
   useEffect(() => {
     filterMentors(skill, country);
   }, [skill, country])

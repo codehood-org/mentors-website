@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   CardContent,
@@ -33,12 +33,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const MentorCard = (props) => {
+
+  const [skill, setSkill] = useState("");
+  const [country, setCountry] = useState("");
+
+
   const classes = useStyles();
-  const { mentor } = props;
+  const { mentor, filterMentors } = props;
   const [fav, setFav] = useState(false);
   const toggleMentorFav = () => {
     setFav(!fav);
   };
+    
+    const handleCountrySelection = () => {
+      setCountry(mentor.countryAlpha2Code);
+    };
+    
+    useEffect(() => {
+      filterMentors(skill, country);
+    }, [skill, country])
+  
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -48,10 +62,12 @@ const MentorCard = (props) => {
           </Avatar>
         }
         action={
+          <Button  onClick={handleCountrySelection}>
           <img
             src={`https://www.countryflags.io/${mentor.countryAlpha2Code}/flat/32.png`}
             alt=""
           />
+          </Button>
         }
         title={mentor.name}
         subheader={mentor.title}
