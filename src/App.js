@@ -95,9 +95,8 @@ function App() {
             className={classes.cardsWrapper}
           >
             {mentors.map((mentor, index) => (
-              <Grid item key={index} xs={12}  md={4} lg={3}>
-                <MentorCard mentor={mentor}  filterMentors={filterMentors}/>
-
+              <Grid item key={index} /* xs={12} md={6} lg={3} */>
+                <MentorCard mentor={mentor} />
               </Grid>
             ))}
           </Grid>
