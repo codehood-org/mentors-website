@@ -17,8 +17,7 @@ import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutline
 import FavoriteOutlinedIcon from "@material-ui/icons/FavoriteOutlined";
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 300,
-
+    maxWidth: 270,
   },
   avatar: {
     width: theme.spacing(8),
@@ -65,7 +64,7 @@ const MentorCard = (props) => {
           <Button  onClick={handleCountrySelection}>
           <img
             src={`https://www.countryflags.io/${mentor.countryAlpha2Code}/flat/32.png`}
-            alt=""
+            alt={mentor.country}
           />
           </Button>
         }

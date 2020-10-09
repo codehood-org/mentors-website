@@ -6,6 +6,7 @@ import {
   IconButton,
   MenuItem,
   TextField,
+  Typography
 } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 /* const useStyles = makeStyles((theme) => ({
@@ -89,6 +90,11 @@ const MentorFilter = (props) => {
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <Grid container>
+        <Grid item xs={12} spacing={4} direction="column">
+          <Typography variant="h6" color="primary">
+            Filter
+          </Typography>
+        </Grid>
         <Grid item xs={12}>
           {/*FILTER BY SKILLS */}
           <TextField
