@@ -28,7 +28,7 @@
     "skills": ["html", "css", "javascript"],
     "countryAlpha2Code": "EG",
     "country": "Egypt",
-    "image": "https:url/image(optional).jpg"
+    "twitter": "yourTwitterHandler"
   }
 ```
 
@@ -41,7 +41,7 @@
     "skills": ["html", "css", "javascript"],
     "countryAlpha2Code": "EG",
     "country": "Egypt",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+    "twitter": "islam_sayed8"
   }
 ```
 
