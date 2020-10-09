@@ -26,12 +26,15 @@ const useStyles = makeStyles(() => ({
   title: {
     flexGrow: 1,
   },
+  containerMain: {
+    padding: 24,
+  },
 }));
 
 function App() {
   const classes = useStyles();
   const [mentors, setMentors] = useState(mentorsList);
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(false);
 
   const filterMentors = (skill, country) => {
     if (skill === "" && country === "") {
@@ -52,8 +55,8 @@ function App() {
   };
 
   const handleModeChange = () => {
-    setDarkMode(!darkMode)
-  }
+    setDarkMode(!darkMode);
+  };
   return (
     <div className="App">
       <ThemeProvider theme={globalTheme}>
@@ -77,22 +80,22 @@ function App() {
             </FormGroup>
           </Toolbar>
         </AppBar>
-        <Grid container spacing={2}>
-          <Grid container item xs={12} sm={3}>
-            <MentorFilter mentors={mentors} filterMentors={filterMentors} />
+        <Grid container spacing={2} className={classes.containerMain}>
+          <Grid container item xs={12} md={3}>
+              <MentorFilter mentors={mentors} filterMentors={filterMentors} />
           </Grid>
           <Grid
             container
             item
-            xs={12}
-            sm={9}
-            spacing={1}
+            /* xs={12}
+            md={9} */
+            spacing={2}
             justify="flex-start"
             alignContent="flex-start"
             className={classes.cardsWrapper}
           >
             {mentors.map((mentor, index) => (
-              <Grid item key={index} xs={12} md={4} lg={3}>
+              <Grid item key={index} /* xs={12} md={6} lg={3} */>
                 <MentorCard mentor={mentor} />
               </Grid>
             ))}
