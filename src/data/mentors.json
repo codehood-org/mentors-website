@@ -6,7 +6,7 @@
     "skills": ["html", "css", "javascript"],
     "countryAlpha2Code": "EG",
     "country": "Egypt",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+    "twitter": "islam_sayed8"
   },
   {
     "name": "Yahia Harony",
@@ -15,7 +15,7 @@
     "skills": ["nodejs", "reactjs", "javascript"],
     "countryAlpha2Code": "LB",
     "country": "Lebanon",
-    "image": "https://uifaces.co/our-content/donated/FJkauyEa.jpg"
+    "twitter": "yahya_elharony"
   },
   {
     "name": "Mohamed Emad",
@@ -24,7 +24,7 @@
     "skills": ["html", "css", "javascript", "react native"],
     "countryAlpha2Code": "MA",
     "country": "Morocco",
-    "image": "https://uifaces.co/our-content/donated/xZ4wg2Xj.jpg"
+    "twitter": "mohamednajiub"
   },
   {
     "name": "Mohammed Riad",
@@ -33,7 +33,7 @@
     "skills": [".net", "c#", "javascript"],
     "countryAlpha2Code": "SA",
     "country": "Saudi Arabia",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+    "twitter": "Mohamed_Riaad"
   },
   {
     "name": "Islam Sayed",
@@ -42,7 +42,7 @@
     "skills": ["html", "css"],
     "countryAlpha2Code": "EG",
     "country": "Egypt",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+    "twitter": "islam_sayed8"
   },
   {
     "name": "Mohammed Riad",
@@ -51,7 +51,7 @@
     "skills": [".net", "c#", "javascript"],
     "countryAlpha2Code": "SA",
     "country": "Saudi Arabia",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+    "twitter": "Mohamed_Riaad"
   },
   {
     "name": "Mohammed Riad",
@@ -60,7 +60,7 @@
     "skills": [".net", "c#", "javascript"],
     "countryAlpha2Code": "SA",
     "country": "Saudi Arabia",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+    "twitter": "Mohamed_Riaad"
   },
   {
     "name": "Mohamed Emad",
@@ -69,7 +69,7 @@
     "skills": ["html", "css", "react native"],
     "countryAlpha2Code": "MA",
     "country": "Morocco",
-    "image": ""
+    "twitter": "mohamednajiub"
   },
   {
     "name": "Mohammed Riad",
@@ -78,7 +78,7 @@
     "skills": [".net", "c#", "javascript"],
     "countryAlpha2Code": "SA",
     "country": "Saudi Arabia",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+    "twitter": "Mohamed_Riaad"
   },
   {
     "name": "Mohamed Emad",
@@ -87,7 +87,7 @@
     "skills": ["html", "css", "react native"],
     "countryAlpha2Code": "MA",
     "country": "Morocco",
-    "image": ""
+    "twitter": "mohamednajiub"
   },
   {
     "name": "Mohammed Riad",
@@ -96,7 +96,7 @@
     "skills": [".net", "c#", "javascript"],
     "countryAlpha2Code": "SA",
     "country": "Saudi Arabia",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+    "twitter": "Mohamed_Riaad"
   },
   {
     "name": "Mohamed Emad",
@@ -105,7 +105,7 @@
     "skills": ["html", "css", "react native"],
     "countryAlpha2Code": "MA",
     "country": "Morocco",
-    "image": ""
+    "twitter": "mohamednajiub"
   },
   {
     "name": "Mohammed Riad",
@@ -114,7 +114,7 @@
     "skills": [".net", "c#", "javascript"],
     "countryAlpha2Code": "SA",
     "country": "Saudi Arabia",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+    "twitter": "Mohamed_Riaad"
   },
   {
     "name": "Mohamed Emad",
@@ -123,7 +123,7 @@
     "skills": ["html", "css", "react native"],
     "countryAlpha2Code": "MA",
     "country": "Morocco",
-    "image": ""
+    "twitter": "mohamednajiub"
   },
   {
     "name": "Mohammed Riad",
@@ -132,7 +132,7 @@
     "skills": [".net", "c#", "javascript"],
     "countryAlpha2Code": "SA",
     "country": "Saudi Arabia",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+    "twitter": "Mohamed_Riaad"
   },
   {
     "name": "Mohamed Emad",
@@ -141,7 +141,7 @@
     "skills": ["html", "javascript", "react native"],
     "countryAlpha2Code": "MA",
     "country": "Morocco",
-    "image": ""
+    "twitter": "mohamednajiub"
   },
   {
     "name": "Mohammed Riad",
@@ -150,7 +150,7 @@
     "skills": [".net", "c#", "javascript"],
     "countryAlpha2Code": "SA",
     "country": "Saudi Arabia",
-    "image": "https://uifaces.co/our-content/donated/ukegoVAy.jpg"
+    "twitter": "Mohamed_Riaad"
   },
   {
     "name": "Mohamed Emad",
@@ -159,7 +159,7 @@
     "skills": ["html", "css", "javascript", "react native"],
     "countryAlpha2Code": "MA",
     "country": "Morocco",
-    "image": ""
+    "twitter": "mohamednajiub"
   },
   {
     "name": "Yahia Harony",
@@ -168,6 +168,6 @@
     "skills": ["nodejs", "reactjs", ".net"],
     "countryAlpha2Code": "LB",
     "country": "Lebanon",
-    "image": "https://uifaces.co/our-content/donated/FJkauyEa.jpg"
+    "twitter": "yahya_elharony"
   }
 ]
