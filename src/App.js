@@ -11,13 +11,11 @@ import {
   makeStyles,
   createMuiTheme,
   ThemeProvider,
+  CssBaseline,
 } from "@material-ui/core";
 import MentorCard from "./controllers/mentor-card/MentorCard";
 import MentorFilter from "./controllers/mentor-filter/MentorFilter";
 import mentorsList from "./data/mentors.json";
-
-//Modify the default Mui Theme
-const globalTheme = createMuiTheme({});
 
 const useStyles = makeStyles(() => ({
   cardsWrapper: {
@@ -35,6 +33,12 @@ function App() {
   const classes = useStyles();
   const [mentors, setMentors] = useState(mentorsList);
   const [darkMode, setDarkMode] = useState(false);
+
+  const appliedTheme = createMuiTheme({
+    palette: {
+      type: darkMode ? 'dark' : 'light'
+    }
+  });
 
   const filterMentors = (skill, country) => {
     if (skill === "" && country === "") {
@@ -59,7 +63,8 @@ function App() {
   };
   return (
     <div className="App">
-      <ThemeProvider theme={globalTheme}>
+      <ThemeProvider theme={appliedTheme}>
+        <CssBaseline />
         <AppBar position="static" className={classes.appBar}>
           <Toolbar>
             <Typography variant="h4" className={classes.title}>
