@@ -85,8 +85,8 @@ const MentorFilter = (props) => {
   }
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <Grid container>
-        <Grid item xs={12} spacing={4} direction="column">
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
           <Typography variant="h6" color="primary">
             Filter
           </Typography>
