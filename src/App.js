@@ -92,15 +92,15 @@ function App() {
           <Grid
             container
             item
-            /* xs={12}
-            md={9} */
+            xs={12}
+            md={9}
             spacing={2}
-            justify="flex-start"
+            justify={window.innerWidth < 637 ? 'center' : 'flex-start'}
             alignContent="flex-start"
             className={classes.cardsWrapper}
           >
             {mentors.map((mentor, index) => (
-              <Grid item key={index} /* xs={12} md={6} lg={3} */>
+              <Grid item key={index}>
                 <MentorCard mentor={mentor} />
               </Grid>
             ))}
