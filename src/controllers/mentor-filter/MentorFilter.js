@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   makeStyles,
   Grid,
@@ -6,7 +6,7 @@ import {
   IconButton,
   MenuItem,
   TextField,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 /* const useStyles = makeStyles((theme) => ({
@@ -50,16 +50,19 @@ const arabCountries = {
 const MentorFilter = (props) => {
   const classes = useStyles();
 
-  const { mentors, filterMentors } = props;
-
-  const [skill, setSkill] = useState("");
-  const [country, setCountry] = useState("");
+  const {
+    mentors,
+    skill,
+    country,
+    choseSkill,
+    choseCountry,
+  } = props;
 
   const handleSkillSelection = (e) => {
-    setSkill(e.target.value);
+    choseSkill(e.target.value);
   };
   const handleCountrySelection = (e) => {
-    setCountry(e.target.value);
+    choseCountry(e.target.value);
   };
   //creating a unique skills array.
   const skills = [...new Set(mentors.map((mentor) => mentor.skills).flat())];
@@ -73,16 +76,16 @@ const MentorFilter = (props) => {
       label: arabCountries[country],
     };
   });
-  useEffect(() => {
+/*   useEffect(() => {
     filterMentors(skill, country);
-  }, [skill, country])
+  }, [skill, country]); */
 
   const handleSkillClear = () => {
-    setSkill("");
-  }
+    choseSkill("");
+  };
   const handleCountryClear = () => {
-    setCountry("")
-  }
+    choseCountry("");
+  };
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <Grid container spacing={2}>
@@ -105,15 +108,15 @@ const MentorFilter = (props) => {
               endAdornment: (
                 <InputAdornment position="end">
                   {skill && (
-                  <IconButton
-                    aria-label="clear filter"
-                    className={classes.clearBtn}
-                    onClick={handleSkillClear}
-                    //onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    <ClearIcon />
-                  </IconButton>
+                    <IconButton
+                      aria-label="clear filter"
+                      className={classes.clearBtn}
+                      onClick={handleSkillClear}
+                      //onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      <ClearIcon />
+                    </IconButton>
                   )}
                 </InputAdornment>
               ),
@@ -138,18 +141,17 @@ const MentorFilter = (props) => {
             helperText="filter mentors by country"
             InputProps={{
               endAdornment: (
-                
                 <InputAdornment position="end">
                   {country && (
-                  <IconButton
-                    aria-label="clear filter"
-                    className={classes.clearBtn}
-                    onClick={handleCountryClear}
-                    //onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    <ClearIcon />
-                  </IconButton>
+                    <IconButton
+                      aria-label="clear filter"
+                      className={classes.clearBtn}
+                      onClick={handleCountryClear}
+                      //onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      <ClearIcon />
+                    </IconButton>
                   )}
                 </InputAdornment>
               ),
