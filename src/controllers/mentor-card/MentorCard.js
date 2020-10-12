@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MentorCard = (props) => {
   const classes = useStyles();
-  const { mentor, choseCountry } = props;
+  const { mentor, choseCountry, choseSkill } = props;
   const [fav, setFav] = useState(false);
   const toggleMentorFav = () => {
     setFav(!fav);
@@ -41,6 +41,10 @@ const MentorCard = (props) => {
 
   const handleFlagClick = () => {
     choseCountry(mentor.countryAlpha2Code)
+  }
+
+  const handleSkillChipClick = (e) => {
+    choseSkill(e.target.textContent)
   }
   return (
     <Card className={classes.root}>
@@ -72,7 +76,7 @@ const MentorCard = (props) => {
         <Grid container justify="center" spacing={1}>
           {mentor.skills.map((skill, index) => (
             <Grid key={index} item>
-              <Chip label={skill} variant="outlined" />
+              <Chip label={skill} variant="outlined" onClick={handleSkillChipClick} />
             </Grid>
           ))}
         </Grid>
