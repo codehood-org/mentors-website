@@ -76,9 +76,6 @@ const MentorFilter = (props) => {
       label: arabCountries[country],
     };
   });
-/*   useEffect(() => {
-    filterMentors(skill, country);
-  }, [skill, country]); */
 
   const handleSkillClear = () => {
     choseSkill("");
