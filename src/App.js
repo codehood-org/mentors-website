@@ -126,7 +126,7 @@ function App() {
           >
             {mentors.map((mentor, index) => (
               <Grid item key={index}>
-                <MentorCard mentor={mentor} choseCountry={choseCountry} />
+                <MentorCard mentor={mentor} choseCountry={choseCountry} choseSkill={choseSkill} />
               </Grid>
             ))}
           </Grid>
