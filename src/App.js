@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import {
   Grid,
@@ -34,6 +34,13 @@ function App() {
   const [mentors, setMentors] = useState(mentorsList);
   const [darkMode, setDarkMode] = useState(false);
 
+  const [skill, setSkill] = useState("");
+  const [country, setCountry] = useState("");
+
+  useEffect(() => {
+    filterMentors(skill, country);
+  }, [skill, country]);
+
   const appliedTheme = createMuiTheme({
     palette: {
       type: darkMode ? "dark" : "light",
@@ -57,6 +64,14 @@ function App() {
       );
     }
   };
+
+  const choseSkill = (chosenSkill) => {
+    setSkill(chosenSkill)
+  }
+
+  const choseCountry = (chosenCountry) => {
+    setCountry(chosenCountry)
+  }
 
   const handleModeChange = () => {
     setDarkMode(!darkMode);
@@ -90,7 +105,14 @@ function App() {
         </AppBar>
         <Grid container spacing={2} className={classes.containerMain}>
           <Grid container item xs={12} md={3}>
-            <MentorFilter mentors={mentors} filterMentors={filterMentors} />
+            <MentorFilter
+              mentors={mentors}
+              filterMentors={filterMentors}
+              skill={skill}
+              country={country}
+              choseSkill={choseSkill}
+              choseCountry={choseCountry}
+            />
           </Grid>
           <Grid
             container
