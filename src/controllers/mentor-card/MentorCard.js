@@ -22,35 +22,45 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     width: theme.spacing(8),
     height: theme.spacing(8),
-    backgroundColor: '#e45',
+    backgroundColor: "#e45",
   },
   cardAction: {
     display: "flex",
-    justifyContent: "space-around",  
+    justifyContent: "space-around",
     padding: 0,
   },
 }));
 
 const MentorCard = (props) => {
   const classes = useStyles();
-  const { mentor } = props;
+  const { mentor, choseCountry } = props;
   const [fav, setFav] = useState(false);
   const toggleMentorFav = () => {
     setFav(!fav);
   };
+
+  const handleFlagClick = () => {
+    choseCountry(mentor.countryAlpha2Code)
+  }
   return (
     <Card className={classes.root}>
       <CardHeader
         avatar={
-          <Avatar src={`https://unavatar.now.sh/twitter/${mentor.twitter}`} aria-label="mentor" className={classes.avatar}>
+          <Avatar
+            src={`https://unavatar.now.sh/twitter/${mentor.twitter}`}
+            aria-label="mentor"
+            className={classes.avatar}
+          >
             {mentor.name[0]}
           </Avatar>
         }
         action={
-          <img
-            src={`https://www.countryflags.io/${mentor.countryAlpha2Code}/flat/32.png`}
-            alt={mentor.country}
-          />
+          <IconButton onClick={handleFlagClick}>
+            <img
+              src={`https://www.countryflags.io/${mentor.countryAlpha2Code}/flat/32.png`}
+              alt={mentor.country}
+            />
+          </IconButton>
         }
         title={mentor.name}
         subheader={mentor.title}
@@ -73,7 +83,11 @@ const MentorCard = (props) => {
           Connect
         </Button>
         <IconButton onClick={toggleMentorFav}>
-          {fav ? <FavoriteOutlinedIcon color="secondary" /> : <FavoriteBorderOutlinedIcon />}
+          {fav ? (
+            <FavoriteOutlinedIcon color="secondary" />
+          ) : (
+            <FavoriteBorderOutlinedIcon />
+          )}
         </IconButton>
       </CardActions>
     </Card>
