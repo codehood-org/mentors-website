@@ -36,8 +36,8 @@ function App() {
 
   const appliedTheme = createMuiTheme({
     palette: {
-      type: darkMode ? 'dark' : 'light'
-    }
+      type: darkMode ? "dark" : "light",
+    },
   });
 
   const filterMentors = (skill, country) => {
@@ -67,7 +67,10 @@ function App() {
         <CssBaseline />
         <AppBar position="static" className={classes.appBar}>
           <Toolbar>
-            <Typography variant="h4" className={classes.title}>
+            <Typography
+              variant={window.innerWidth < 637 ? "h6" : "h4"}
+              className={classes.title}
+            >
               Codehood Mentors
             </Typography>
             <FormGroup>
@@ -87,7 +90,7 @@ function App() {
         </AppBar>
         <Grid container spacing={2} className={classes.containerMain}>
           <Grid container item xs={12} md={3}>
-              <MentorFilter mentors={mentors} filterMentors={filterMentors} />
+            <MentorFilter mentors={mentors} filterMentors={filterMentors} />
           </Grid>
           <Grid
             container
@@ -95,7 +98,7 @@ function App() {
             xs={12}
             md={9}
             spacing={2}
-            justify={window.innerWidth < 637 ? 'center' : 'flex-start'}
+            justify={window.innerWidth < 637 ? "center" : "flex-start"}
             alignContent="flex-start"
             className={classes.cardsWrapper}
           >
