@@ -38,6 +38,10 @@ function App() {
   const [country, setCountry] = useState("");
 
   useEffect(() => {
+    const isDarkMode = localStorage.getItem('codehood_darkmode')
+    if (isDarkMode != null) {
+      setDarkMode(isDarkMode)
+    }
     filterMentors(skill, country);
   }, [skill, country]);
 
@@ -74,6 +78,7 @@ function App() {
   }
 
   const handleModeChange = () => {
+    localStorage.setItem('codehood_darkmode', !darkMode)
     setDarkMode(!darkMode);
   };
   return (
