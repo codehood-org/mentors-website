@@ -16,6 +16,7 @@ import {
 import MentorCard from "./controllers/mentor-card/MentorCard";
 import MentorFilter from "./controllers/mentor-filter/MentorFilter";
 import mentorsList from "./data/mentors.json";
+import useLocalStorageToggle from "./hooks/useLocalStorageToggle";
 
 const useStyles = makeStyles(() => ({
   cardsWrapper: {
@@ -36,6 +37,7 @@ function App() {
 
   const [skill, setSkill] = useState("");
   const [country, setCountry] = useState("");
+  const [heartedMentors, toggleHeartedMentor] = useLocalStorageToggle("heartedMentors", []);
 
   useEffect(() => {
     filterMentors(skill, country);
@@ -126,7 +128,13 @@ function App() {
           >
             {mentors.map((mentor, index) => (
               <Grid item key={index}>
-                <MentorCard mentor={mentor} choseCountry={choseCountry} choseSkill={choseSkill} />
+                <MentorCard
+                  mentor={mentor}
+                  choseCountry={choseCountry}
+                  choseSkill={choseSkill}
+                  heartedMentor={heartedMentors.includes(mentor.id)}
+                  toggleHeartedMentor={toggleHeartedMentor}
+                />
               </Grid>
             ))}
           </Grid>
