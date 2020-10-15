@@ -37,19 +37,46 @@ function App() {
 
   const [skill, setSkill] = useState("");
   const [country, setCountry] = useState("");
-  const [heartedMentors, toggleHeartedMentor] = useLocalStorageToggle("heartedMentors", []);
-
+  const [heartedMentors, toggleHeartedMentor] = useLocalStorageToggle(
+    "heartedMentors",
+    []
+  );
+  const [isFavMentors, setIsFavMentors] = useState(false);
   useEffect(() => {
-    filterMentors(skill, country);
-  }, [skill, country]);
+    filterMentors();
+  }, [skill, country, isFavMentors, heartedMentors]);
 
   const appliedTheme = createMuiTheme({
     palette: {
       type: darkMode ? "dark" : "light",
     },
   });
+  const filterFromHeartedMentors = () => {
+    const filteredHeartedMentors = mentorsList.filter((mentor) =>
+      heartedMentors.includes(mentor.id)
+    );
+    if (skill === "" && country === "") {
+      setMentors(filteredHeartedMentors);
+    } else if (skill === "") {
+      setMentors(
+        filteredHeartedMentors.filter(
+          (mentor) => mentor.countryAlpha2Code === country
+        )
+      );
+    } else if (country === "") {
+      setMentors(
+        filteredHeartedMentors.filter((mentor) => mentor.skills.includes(skill))
+      );
+    } else {
+      setMentors(
+        filteredHeartedMentors
+          .filter((mentor) => mentor.countryAlpha2Code === country)
+          .filter((mentor) => mentor.skills.includes(skill))
+      );
+    }
+  };
 
-  const filterMentors = (skill, country) => {
+  const filterFormMentorsList = () => {
     if (skill === "" && country === "") {
       setMentors(mentorsList);
     } else if (skill === "") {
@@ -66,14 +93,31 @@ function App() {
       );
     }
   };
+  const filterMentors = () => {
+    switch(isFavMentors) {
+      case true:
+        filterFromHeartedMentors(skill, country);
+        break;
+      case false:
+        filterFormMentorsList(skill, country);
+        break;
+      default:
+        return null;
+    }
+  };
 
   const choseSkill = (chosenSkill) => {
-    setSkill(chosenSkill)
-  }
+    setSkill(chosenSkill);
+  };
 
   const choseCountry = (chosenCountry) => {
-    setCountry(chosenCountry)
-  }
+    setCountry(chosenCountry);
+  };
+
+  const choseFavMentors = (chosenFavMentorsStatus) => {
+    setIsFavMentors(chosenFavMentorsStatus);
+    console.log(chosenFavMentorsStatus);
+  };
 
   const handleModeChange = () => {
     setDarkMode(!darkMode);
@@ -114,6 +158,8 @@ function App() {
               country={country}
               choseSkill={choseSkill}
               choseCountry={choseCountry}
+              choseFavMentors={choseFavMentors}
+              isFavMentors={isFavMentors}
             />
           </Grid>
           <Grid
