@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Card,
   CardContent,
@@ -33,11 +33,13 @@ const useStyles = makeStyles((theme) => ({
 
 const MentorCard = (props) => {
   const classes = useStyles();
-  const { mentor, choseCountry, choseSkill } = props;
-  const [fav, setFav] = useState(false);
-  const toggleMentorFav = () => {
-    setFav(!fav);
-  };
+  const {
+    mentor,
+    choseCountry,
+    choseSkill,
+    heartedMentor,
+    toggleHeartedMentor,
+  } = props;
 
   const handleFlagClick = () => {
     choseCountry(mentor.countryAlpha2Code)
@@ -86,8 +88,8 @@ const MentorCard = (props) => {
         <Button href="#connect-mentor" color="primary">
           Connect
         </Button>
-        <IconButton onClick={toggleMentorFav}>
-          {fav ? (
+        <IconButton onClick={() => toggleHeartedMentor(mentor.id)}>
+          {heartedMentor ? (
             <FavoriteOutlinedIcon color="secondary" />
           ) : (
             <FavoriteBorderOutlinedIcon />
