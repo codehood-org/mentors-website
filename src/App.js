@@ -16,6 +16,7 @@ import {
 import MentorCard from "./controllers/mentor-card/MentorCard";
 import MentorFilter from "./controllers/mentor-filter/MentorFilter";
 import mentorsList from "./data/mentors.json";
+import useLocalStorageToggle from "./hooks/useLocalStorageToggle";
 
 const useStyles = makeStyles(() => ({
   cardsWrapper: {
@@ -36,22 +37,51 @@ function App() {
 
   const [skill, setSkill] = useState("");
   const [country, setCountry] = useState("");
-
+  const [heartedMentors, toggleHeartedMentor] = useLocalStorageToggle(
+    "heartedMentors",
+    []
+  );
+  const [isFavMentors, setIsFavMentors] = useState(false);
   useEffect(() => {
     const isDarkMode = localStorage.getItem('codehood_darkmode')
     if (isDarkMode != null) {
       setDarkMode(isDarkMode)
     }
-    filterMentors(skill, country);
-  }, [skill, country]);
+    
+    filterMentors();
+  }, [skill, country, isFavMentors, heartedMentors]);
 
   const appliedTheme = createMuiTheme({
     palette: {
       type: darkMode ? "dark" : "light",
     },
   });
+  const filterFromHeartedMentors = () => {
+    const filteredHeartedMentors = mentorsList.filter((mentor) =>
+      heartedMentors.includes(mentor.id)
+    );
+    if (skill === "" && country === "") {
+      setMentors(filteredHeartedMentors);
+    } else if (skill === "") {
+      setMentors(
+        filteredHeartedMentors.filter(
+          (mentor) => mentor.countryAlpha2Code === country
+        )
+      );
+    } else if (country === "") {
+      setMentors(
+        filteredHeartedMentors.filter((mentor) => mentor.skills.includes(skill))
+      );
+    } else {
+      setMentors(
+        filteredHeartedMentors
+          .filter((mentor) => mentor.countryAlpha2Code === country)
+          .filter((mentor) => mentor.skills.includes(skill))
+      );
+    }
+  };
 
-  const filterMentors = (skill, country) => {
+  const filterFormMentorsList = () => {
     if (skill === "" && country === "") {
       setMentors(mentorsList);
     } else if (skill === "") {
@@ -68,14 +98,31 @@ function App() {
       );
     }
   };
+  const filterMentors = () => {
+    switch(isFavMentors) {
+      case true:
+        filterFromHeartedMentors(skill, country);
+        break;
+      case false:
+        filterFormMentorsList(skill, country);
+        break;
+      default:
+        return null;
+    }
+  };
 
   const choseSkill = (chosenSkill) => {
-    setSkill(chosenSkill)
-  }
+    setSkill(chosenSkill);
+  };
 
   const choseCountry = (chosenCountry) => {
-    setCountry(chosenCountry)
-  }
+    setCountry(chosenCountry);
+  };
+
+  const choseFavMentors = (chosenFavMentorsStatus) => {
+    setIsFavMentors(chosenFavMentorsStatus);
+    console.log(chosenFavMentorsStatus);
+  };
 
   const handleModeChange = () => {
     localStorage.setItem('codehood_darkmode', !darkMode)
@@ -117,6 +164,8 @@ function App() {
               country={country}
               choseSkill={choseSkill}
               choseCountry={choseCountry}
+              choseFavMentors={choseFavMentors}
+              isFavMentors={isFavMentors}
             />
           </Grid>
           <Grid
@@ -131,7 +180,13 @@ function App() {
           >
             {mentors.map((mentor, index) => (
               <Grid item key={index}>
-                <MentorCard mentor={mentor} choseCountry={choseCountry} choseSkill={choseSkill} />
+                <MentorCard
+                  mentor={mentor}
+                  choseCountry={choseCountry}
+                  choseSkill={choseSkill}
+                  heartedMentor={heartedMentors.includes(mentor.id)}
+                  toggleHeartedMentor={toggleHeartedMentor}
+                />
               </Grid>
             ))}
           </Grid>

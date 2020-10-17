@@ -7,6 +7,9 @@ import {
   MenuItem,
   TextField,
   Typography,
+  FormGroup,
+  FormControlLabel,
+  Switch,
 } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 /* const useStyles = makeStyles((theme) => ({
@@ -56,6 +59,8 @@ const MentorFilter = (props) => {
     country,
     choseSkill,
     choseCountry,
+    choseFavMentors,
+    isFavMentors,
   } = props;
 
   const handleSkillSelection = (e) => {
@@ -64,6 +69,10 @@ const MentorFilter = (props) => {
   const handleCountrySelection = (e) => {
     choseCountry(e.target.value);
   };
+  const handleFavMentorsChange = () => {
+    choseFavMentors(!isFavMentors);
+  };
+
   //creating a unique skills array.
   const skills = [...new Set(mentors.map((mentor) => mentor.skills).flat())];
   //creating a unique countries array.
@@ -109,7 +118,6 @@ const MentorFilter = (props) => {
                       aria-label="clear filter"
                       className={classes.clearBtn}
                       onClick={handleSkillClear}
-                      //onMouseDown={handleMouseDownPassword}
                       edge="end"
                     >
                       <ClearIcon />
@@ -144,7 +152,6 @@ const MentorFilter = (props) => {
                       aria-label="clear filter"
                       className={classes.clearBtn}
                       onClick={handleCountryClear}
-                      //onMouseDown={handleMouseDownPassword}
                       edge="end"
                     >
                       <ClearIcon />
@@ -162,8 +169,28 @@ const MentorFilter = (props) => {
             ))}
           </TextField>
         </Grid>
+        <Grid item xs={12}>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Switch
+                  color="secondary"
+                  checked={isFavMentors}
+                  onChange={handleFavMentorsChange}
+                  aria-label={
+                    isFavMentors ? "Favourite Mentors" : "All Mentors"
+                  }
+                />
+              }
+              label={
+                <Typography color={isFavMentors ? "secondary" : "initial"}>
+                  Favorite Mentors
+                </Typography>
+              }
+            />
+          </FormGroup>
+        </Grid>
       </Grid>
-      {/*FILTER BY COUNTRY */}
     </form>
   );
 };
