@@ -43,7 +43,7 @@ function App() {
   );
   const [isFavMentors, setIsFavMentors] = useState(false);
   useEffect(() => {
-    const isDarkMode = localStorage.getItem('codehood_darkmode')
+    const isDarkMode = JSON.parse(localStorage.getItem('codehood_darkmode'))
     if (isDarkMode != null) {
       setDarkMode(isDarkMode)
     }
