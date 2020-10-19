@@ -43,6 +43,11 @@ function App() {
   );
   const [isFavMentors, setIsFavMentors] = useState(false);
   useEffect(() => {
+    const isDarkMode = JSON.parse(localStorage.getItem('codehood_darkmode'))
+    if (isDarkMode != null) {
+      setDarkMode(isDarkMode)
+    }
+    
     filterMentors();
   }, [skill, country, isFavMentors, heartedMentors]);
 
@@ -120,6 +125,7 @@ function App() {
   };
 
   const handleModeChange = () => {
+    localStorage.setItem('codehood_darkmode', !darkMode)
     setDarkMode(!darkMode);
   };
   return (
