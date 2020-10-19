@@ -55,6 +55,7 @@ const MentorFilter = (props) => {
 
   const {
     mentors,
+    searchByMentorName,
     skill,
     country,
     choseSkill,
@@ -86,6 +87,10 @@ const MentorFilter = (props) => {
     };
   });
 
+  const handleNameSearch = (e) => {
+    searchByMentorName(e.target.value);
+  }
+
   const handleSkillClear = () => {
     choseSkill("");
   };
@@ -99,6 +104,15 @@ const MentorFilter = (props) => {
           <Typography variant="h6" color="primary">
             Filter
           </Typography>
+        </Grid>
+        <Grid item xs={12}>
+            <TextField
+              variant="outlined"
+              label="Name"
+              helperText="Filter mentors by name"
+              onChange={handleNameSearch}
+              fullWidth
+            />
         </Grid>
         <Grid item xs={12}>
           {/*FILTER BY SKILLS */}

@@ -98,6 +98,7 @@ function App() {
       );
     }
   };
+
   const filterMentors = () => {
     switch(isFavMentors) {
       case true:
@@ -110,6 +111,14 @@ function App() {
         return null;
     }
   };
+
+  const searchByMentorName = (mentorName) => {
+    if(mentorName.length >= 3 ){
+      setMentors(mentorsList.filter((mentor) => mentor.name.toLowerCase().indexOf(mentorName.toLowerCase()) !== -1));
+    } else {
+      setMentors(mentorsList);
+    }
+  }
 
   const choseSkill = (chosenSkill) => {
     setSkill(chosenSkill);
@@ -166,6 +175,7 @@ function App() {
               choseCountry={choseCountry}
               choseFavMentors={choseFavMentors}
               isFavMentors={isFavMentors}
+              searchByMentorName={searchByMentorName}
             />
           </Grid>
           <Grid
