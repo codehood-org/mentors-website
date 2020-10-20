@@ -55,9 +55,10 @@ const MentorFilter = (props) => {
 
   const {
     mentors,
-    searchByMentorName,
+    name,
     skill,
     country,
+    searchByMentorName,
     choseSkill,
     choseCountry,
     choseFavMentors,
@@ -107,6 +108,7 @@ const MentorFilter = (props) => {
         </Grid>
         <Grid item xs={12}>
             <TextField
+              value={name}
               variant="outlined"
               label="Name"
               helperText="Filter mentors by name"

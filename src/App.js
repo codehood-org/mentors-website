@@ -35,6 +35,7 @@ function App() {
   const [mentors, setMentors] = useState(mentorsList);
   const [darkMode, setDarkMode] = useState(false);
 
+  const [name, setName] = useState("");
   const [skill, setSkill] = useState("");
   const [country, setCountry] = useState("");
   const [heartedMentors, toggleHeartedMentor] = useLocalStorageToggle(
@@ -49,7 +50,7 @@ function App() {
     }
     
     filterMentors();
-  }, [skill, country, isFavMentors, heartedMentors]);
+  }, [name, skill, country, isFavMentors, heartedMentors]);
 
   const appliedTheme = createMuiTheme({
     palette: {
@@ -60,52 +61,126 @@ function App() {
     const filteredHeartedMentors = mentorsList.filter((mentor) =>
       heartedMentors.includes(mentor.id)
     );
-    if (skill === "" && country === "") {
-      setMentors(filteredHeartedMentors);
-    } else if (skill === "") {
+    // if (name === "" && skill === "" && country === "") {
+    //   setMentors(filteredHeartedMentors);
+    // } else if (skill === "") {
+    //   setMentors(
+    //     filteredHeartedMentors.filter(
+    //       (mentor) => mentor.countryAlpha2Code === country
+    //     )
+    //   );
+    // } else if (country === "") {
+    //   setMentors(
+    //     filteredHeartedMentors.filter((mentor) => mentor.skills.includes(skill))
+    //   );
+    // } else {
+    //   setMentors(
+    //     filteredHeartedMentors
+    //       .filter((mentor) => mentor.countryAlpha2Code === country)
+    //       .filter((mentor) => mentor.skills.includes(skill))
+    //   );
+    // }
+
+    if(!name && !country && !skill){
+      setMentors(filteredHeartedMentors)
+    } else if(name && !country && !skill){
       setMentors(
-        filteredHeartedMentors.filter(
-          (mentor) => mentor.countryAlpha2Code === country
-        )
-      );
-    } else if (country === "") {
+        filteredHeartedMentors 
+          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)  
+      )
+    } else if (!name && country && !skill) {
       setMentors(
-        filteredHeartedMentors.filter((mentor) => mentor.skills.includes(skill))
-      );
-    } else {
+        filteredHeartedMentors 
+          .filter((mentor) => mentor.countryAlpha2Code === country)
+      )
+    } else if (!name && !country && skill) {
       setMentors(
-        filteredHeartedMentors
+        filteredHeartedMentors 
+          .filter((mentor) => mentor.skills.includes(skill))
+      )
+    } else if (name && country && !skill) {
+      setMentors(
+        filteredHeartedMentors 
+          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
+          .filter((mentor) => mentor.countryAlpha2Code === country)
+      )
+    } else if (name && !country && skill) {
+      setMentors(
+        filteredHeartedMentors 
+          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
+          .filter((mentor) => mentor.skills.includes(skill))
+      )
+    } else if (!name && country && skill) {
+      setMentors(
+        filteredHeartedMentors 
           .filter((mentor) => mentor.countryAlpha2Code === country)
           .filter((mentor) => mentor.skills.includes(skill))
+      )
+    } else {
+      setMentors(
+        filteredHeartedMentors 
+        .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
+        .filter((mentor) => mentor.countryAlpha2Code === country)
+        .filter((mentor) => mentor.skills.includes(skill))
       );
     }
   };
 
   const filterFormMentorsList = () => {
-    if (skill === "" && country === "") {
-      setMentors(mentorsList);
-    } else if (skill === "") {
+
+    if(!name && !country && !skill){
+      setMentors(mentorsList)
+    } else if(name && !country && !skill){
       setMentors(
-        mentorsList.filter((mentor) => mentor.countryAlpha2Code === country)
-      );
-    } else if (country === "") {
-      setMentors(mentorsList.filter((mentor) => mentor.skills.includes(skill)));
-    } else {
+        mentorsList 
+          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)  
+      )
+    } else if (!name && country && !skill) {
       setMentors(
-        mentorsList
+        mentorsList 
+          .filter((mentor) => mentor.countryAlpha2Code === country)
+      )
+    } else if (!name && !country && skill) {
+      setMentors(
+        mentorsList 
+          .filter((mentor) => mentor.skills.includes(skill))
+      )
+    } else if (name && country && !skill) {
+      setMentors(
+        mentorsList 
+          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
+          .filter((mentor) => mentor.countryAlpha2Code === country)
+      )
+    } else if (name && !country && skill) {
+      setMentors(
+        mentorsList 
+          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
+          .filter((mentor) => mentor.skills.includes(skill))
+      )
+    } else if (!name && country && skill) {
+      setMentors(
+        mentorsList 
           .filter((mentor) => mentor.countryAlpha2Code === country)
           .filter((mentor) => mentor.skills.includes(skill))
+      )
+    } else {
+      setMentors(
+        mentorsList 
+        .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
+        .filter((mentor) => mentor.countryAlpha2Code === country)
+        .filter((mentor) => mentor.skills.includes(skill))
       );
     }
+    
   };
 
   const filterMentors = () => {
     switch(isFavMentors) {
       case true:
-        filterFromHeartedMentors(skill, country);
+        filterFromHeartedMentors();
         break;
       case false:
-        filterFormMentorsList(skill, country);
+        filterFormMentorsList();
         break;
       default:
         return null;
@@ -113,11 +188,7 @@ function App() {
   };
 
   const searchByMentorName = (mentorName) => {
-    if(mentorName.length >= 3 ){
-      setMentors(mentorsList.filter((mentor) => mentor.name.toLowerCase().indexOf(mentorName.toLowerCase()) !== -1));
-    } else {
-      setMentors(mentorsList);
-    }
+    setName(mentorName)
   }
 
   const choseSkill = (chosenSkill) => {
@@ -137,6 +208,7 @@ function App() {
     localStorage.setItem('codehood_darkmode', !darkMode)
     setDarkMode(!darkMode);
   };
+
   return (
     <div className="App">
       <ThemeProvider theme={appliedTheme}>
@@ -169,13 +241,14 @@ function App() {
             <MentorFilter
               mentors={mentors}
               filterMentors={filterMentors}
+              name={name}
               skill={skill}
               country={country}
+              searchByMentorName={searchByMentorName}
               choseSkill={choseSkill}
               choseCountry={choseCountry}
               choseFavMentors={choseFavMentors}
               isFavMentors={isFavMentors}
-              searchByMentorName={searchByMentorName}
             />
           </Grid>
           <Grid
