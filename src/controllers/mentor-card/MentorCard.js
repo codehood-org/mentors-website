@@ -77,10 +77,10 @@ const MentorCard = (props) => {
         title={mentor.name}
         subheader={mentor.title}
       />
-      <CardContent>
+      <CardContent className={classes.MessageCardContent}>
         <Typography variant="body2">"{mentor.message}"</Typography>
       </CardContent>
-      <CardContent>
+      <CardContent className={classes.SkillsCardContent}>
         <Grid container justify="center" spacing={1}>
           {mentor.skills.map((skill, index) => (
             <Grid key={index} item>
