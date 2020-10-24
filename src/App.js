@@ -57,123 +57,75 @@ function App() {
       type: darkMode ? "dark" : "light",
     },
   });
+
+  
   const filterFromHeartedMentors = () => {
     const filteredHeartedMentors = mentorsList.filter((mentor) =>
       heartedMentors.includes(mentor.id)
     );
-    // if (name === "" && skill === "" && country === "") {
-    //   setMentors(filteredHeartedMentors);
-    // } else if (skill === "") {
-    //   setMentors(
-    //     filteredHeartedMentors.filter(
-    //       (mentor) => mentor.countryAlpha2Code === country
-    //     )
-    //   );
-    // } else if (country === "") {
-    //   setMentors(
-    //     filteredHeartedMentors.filter((mentor) => mentor.skills.includes(skill))
-    //   );
-    // } else {
-    //   setMentors(
-    //     filteredHeartedMentors
-    //       .filter((mentor) => mentor.countryAlpha2Code === country)
-    //       .filter((mentor) => mentor.skills.includes(skill))
-    //   );
-    // }
-
-    if(!name && !country && !skill){
-      setMentors(filteredHeartedMentors)
-    } else if(name && !country && !skill){
-      setMentors(
-        filteredHeartedMentors 
-          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)  
-      )
-    } else if (!name && country && !skill) {
-      setMentors(
-        filteredHeartedMentors 
-          .filter((mentor) => mentor.countryAlpha2Code === country)
-      )
-    } else if (!name && !country && skill) {
-      setMentors(
-        filteredHeartedMentors 
-          .filter((mentor) => mentor.skills.includes(skill))
-      )
-    } else if (name && country && !skill) {
-      setMentors(
-        filteredHeartedMentors 
-          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
-          .filter((mentor) => mentor.countryAlpha2Code === country)
-      )
-    } else if (name && !country && skill) {
-      setMentors(
-        filteredHeartedMentors 
-          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
-          .filter((mentor) => mentor.skills.includes(skill))
-      )
-    } else if (!name && country && skill) {
-      setMentors(
-        filteredHeartedMentors 
-          .filter((mentor) => mentor.countryAlpha2Code === country)
-          .filter((mentor) => mentor.skills.includes(skill))
-      )
-    } else {
-      setMentors(
-        filteredHeartedMentors 
-        .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
-        .filter((mentor) => mentor.countryAlpha2Code === country)
-        .filter((mentor) => mentor.skills.includes(skill))
-      );
-    }
+   
+    filterstate(filteredHeartedMentors)
   };
 
   const filterFormMentorsList = () => {
 
-    if(!name && !country && !skill){
-      setMentors(mentorsList)
-    } else if(name && !country && !skill){
-      setMentors(
-        mentorsList 
-          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)  
-      )
-    } else if (!name && country && !skill) {
-      setMentors(
-        mentorsList 
-          .filter((mentor) => mentor.countryAlpha2Code === country)
-      )
-    } else if (!name && !country && skill) {
-      setMentors(
-        mentorsList 
-          .filter((mentor) => mentor.skills.includes(skill))
-      )
-    } else if (name && country && !skill) {
-      setMentors(
-        mentorsList 
-          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
-          .filter((mentor) => mentor.countryAlpha2Code === country)
-      )
-    } else if (name && !country && skill) {
-      setMentors(
-        mentorsList 
-          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
-          .filter((mentor) => mentor.skills.includes(skill))
-      )
-    } else if (!name && country && skill) {
-      setMentors(
-        mentorsList 
-          .filter((mentor) => mentor.countryAlpha2Code === country)
-          .filter((mentor) => mentor.skills.includes(skill))
-      )
-    } else {
-      setMentors(
-        mentorsList 
-        .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
-        .filter((mentor) => mentor.countryAlpha2Code === country)
-        .filter((mentor) => mentor.skills.includes(skill))
-      );
-    }
+    const list = mentorsList
+    
+    filterstate(list)
     
   };
 
+  /**
+   *  takes a List of mentors and return state with filterd list based on filter type
+   * @param {*} mentorList 
+   * @returns state with array of mentors
+   */
+  const filterstate =(mentorList)=> {
+
+    if (!name && !country && !skill) {
+      setMentors(mentorList);
+    } else if (name && !country && !skill) {
+      setMentors(
+        mentorList
+          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
+      );
+    } else if (!name && country && !skill) {
+      setMentors(
+        mentorList
+          .filter((mentor) => mentor.countryAlpha2Code === country)
+      );
+    } else if (!name && !country && skill) {
+      setMentors(
+        mentorList
+          .filter((mentor) => mentor.skills.includes(skill))
+      );
+    } else if (name && country && !skill) {
+      setMentors(
+        mentorList
+          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
+          .filter((mentor) => mentor.countryAlpha2Code === country)
+      );
+    } else if (name && !country && skill) {
+      setMentors(
+        mentorList
+          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
+          .filter((mentor) => mentor.skills.includes(skill))
+      );
+    } else if (!name && country && skill) {
+      setMentors(
+        mentorList
+          .filter((mentor) => mentor.countryAlpha2Code === country)
+          .filter((mentor) => mentor.skills.includes(skill))
+      );
+    } else {
+      setMentors(
+        mentorList
+          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
+          .filter((mentor) => mentor.countryAlpha2Code === country)
+          .filter((mentor) => mentor.skills.includes(skill))
+      );
+    }
+  }
   const filterMentors = () => {
     switch(isFavMentors) {
       case true:
