@@ -95,8 +95,11 @@
 
 ## How to contiribute : 
  * clone the project into your machine 
- * create new pranch from `master`
+ * create new branch from `master`
  * check the isseues part or create new one 
  * start hacking
  * push your changes and create a pull request 
  * you are all done .
+
+
+
