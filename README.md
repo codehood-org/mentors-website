@@ -88,6 +88,18 @@
         DJ: "Djibouti"
         ---------------
         KM: "Comoros"
+## Installation:
+- This application is created using `yarn` so you need to run the following commands :
+  - `yarn install`  to install all the requird dependacies for the project
+  - `yarn start`  to run the application on port `3000` if port is busy it will ask you to change the port 
+
+## How to contiribute : 
+ * clone the project into your machine 
+ * create new branch from `master`
+ * check the isseues part or create new one 
+ * start hacking
+ * push your changes and create a pull request 
+ * you are all done .
 
 
 
