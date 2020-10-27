@@ -17,7 +17,7 @@ import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutline
 import FavoriteOutlinedIcon from "@material-ui/icons/FavoriteOutlined";
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 270,
+    maxWidth: 290,
   },
   avatar: {
     width: theme.spacing(8),
@@ -28,6 +28,12 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-around",
     padding: 0,
+  },
+  MessageCardContent: {
+    height: 120,
+  },
+  SkillsCardContent: {
+    height: 100,
   },
 }));
 
@@ -71,10 +77,10 @@ const MentorCard = (props) => {
         title={mentor.name}
         subheader={mentor.title}
       />
-      <CardContent>
+      <CardContent className={classes.MessageCardContent}>
         <Typography variant="body2">"{mentor.message}"</Typography>
       </CardContent>
-      <CardContent>
+      <CardContent className={classes.SkillsCardContent}>
         <Grid container justify="center" spacing={1}>
           {mentor.skills.map((skill, index) => (
             <Grid key={index} item>
