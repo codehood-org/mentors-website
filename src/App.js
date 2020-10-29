@@ -13,6 +13,8 @@ import {
   ThemeProvider,
   CssBaseline,
 } from "@material-ui/core";
+import DarkIcon from "@material-ui/icons/Brightness4";
+import LightIcon from "@material-ui/icons/Brightness7";
 import MentorCard from "./controllers/mentor-card/MentorCard";
 import MentorFilter from "./controllers/mentor-filter/MentorFilter";
 import mentorsList from "./data/mentors.json";
@@ -44,11 +46,11 @@ function App() {
   );
   const [isFavMentors, setIsFavMentors] = useState(false);
   useEffect(() => {
-    const isDarkMode = JSON.parse(localStorage.getItem('codehood_darkmode'))
+    const isDarkMode = JSON.parse(localStorage.getItem("codehood_darkmode"));
     if (isDarkMode != null) {
-      setDarkMode(isDarkMode)
+      setDarkMode(isDarkMode);
     }
-    
+
     filterMentors();
   }, [name, skill, country, isFavMentors, heartedMentors]);
 
@@ -56,65 +58,65 @@ function App() {
     palette: {
       type: darkMode ? "dark" : "light",
       primary: {
-        main: '#36ABB5',
+        main: "#36ABB5",
       },
       secondary: {
-        main: '#FFDE59',
+        main: "#FFDE59",
       },
     },
   });
 
-  
   const filterFromHeartedMentors = () => {
     const filteredHeartedMentors = mentorsList.filter((mentor) =>
       heartedMentors.includes(mentor.id)
     );
-   
-    filterstate(filteredHeartedMentors)
+
+    filterstate(filteredHeartedMentors);
   };
 
   const filterFormMentorsList = () => {
+    const list = mentorsList;
 
-    const list = mentorsList
-    
-    filterstate(list)
-    
+    filterstate(list);
   };
 
   /**
    *  takes a List of mentors and return state with filterd list based on filter type
-   * @param {*} mentorList 
+   * @param {*} mentorList
    * @returns state with array of mentors
    */
-  const filterstate =(mentorList)=> {
-
+  const filterstate = (mentorList) => {
     if (!name && !country && !skill) {
       setMentors(mentorList);
     } else if (name && !country && !skill) {
       setMentors(
-        mentorList
-          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
+        mentorList.filter(
+          (mentor) =>
+            mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
+        )
       );
     } else if (!name && country && !skill) {
       setMentors(
-        mentorList
-          .filter((mentor) => mentor.countryAlpha2Code === country)
+        mentorList.filter((mentor) => mentor.countryAlpha2Code === country)
       );
     } else if (!name && !country && skill) {
-      setMentors(
-        mentorList
-          .filter((mentor) => mentor.skills.includes(skill))
-      );
+      setMentors(mentorList.filter((mentor) => mentor.skills.includes(skill)));
     } else if (name && country && !skill) {
       setMentors(
         mentorList
-          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
+          .filter(
+            (mentor) =>
+              mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
+          )
           .filter((mentor) => mentor.countryAlpha2Code === country)
       );
     } else if (name && !country && skill) {
       setMentors(
         mentorList
-          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
+          .filter(
+            (mentor) =>
+              mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
+          )
           .filter((mentor) => mentor.skills.includes(skill))
       );
     } else if (!name && country && skill) {
@@ -126,14 +128,17 @@ function App() {
     } else {
       setMentors(
         mentorList
-          .filter((mentor) => mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1)
+          .filter(
+            (mentor) =>
+              mentor.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
+          )
           .filter((mentor) => mentor.countryAlpha2Code === country)
           .filter((mentor) => mentor.skills.includes(skill))
       );
     }
-  }
+  };
   const filterMentors = () => {
-    switch(isFavMentors) {
+    switch (isFavMentors) {
       case true:
         filterFromHeartedMentors();
         break;
@@ -146,8 +151,8 @@ function App() {
   };
 
   const searchByMentorName = (mentorName) => {
-    setName(mentorName)
-  }
+    setName(mentorName);
+  };
 
   const choseSkill = (chosenSkill) => {
     setSkill(chosenSkill);
@@ -163,15 +168,15 @@ function App() {
   };
 
   const handleModeChange = () => {
-    localStorage.setItem('codehood_darkmode', !darkMode)
+    localStorage.setItem("codehood_darkmode", !darkMode);
     setDarkMode(!darkMode);
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       <ThemeProvider theme={appliedTheme}>
         <CssBaseline />
-        <AppBar position="static" className={classes.appBar}>
+        <AppBar position='static' className={classes.appBar}>
           <Toolbar>
             <Typography
               variant={window.innerWidth < 637 ? "h6" : "h4"}
@@ -183,13 +188,19 @@ function App() {
               <FormControlLabel
                 control={
                   <Switch
-                    color="default"
+                    color='default'
                     checked={darkMode}
                     onChange={handleModeChange}
                     aria-label={darkMode ? "Light Mode" : "Dark Mode"}
                   />
                 }
-                label={darkMode ? "Light Mode" : "Dark Mode"}
+                label={
+                  darkMode ? (
+                    <LightIcon htmlColor='#ffffff' />
+                  ) : (
+                    <DarkIcon htmlColor='#ffffff' />
+                  )
+                }
               />
             </FormGroup>
           </Toolbar>
@@ -216,7 +227,7 @@ function App() {
             md={9}
             spacing={2}
             justify={window.innerWidth < 637 ? "center" : "flex-start"}
-            alignContent="flex-start"
+            alignContent='flex-start'
             className={classes.cardsWrapper}
           >
             {mentors.map((mentor, index) => (
