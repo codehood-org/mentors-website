@@ -28,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
             display: 'block',
             width: '60px',
             height: '60px'
+        },
+        
+        '&:hover': {
+            textDecoration: 'none'
         }
     },
 
