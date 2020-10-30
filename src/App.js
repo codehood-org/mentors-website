@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import {
+  Container,
   Grid,
   AppBar,
   Toolbar,
@@ -12,6 +13,7 @@ import {
   createMuiTheme,
   ThemeProvider,
   CssBaseline,
+  spac
 } from "@material-ui/core";
 import DarkIcon from "@material-ui/icons/Brightness4";
 import LightIcon from "@material-ui/icons/Brightness7";
@@ -20,15 +22,13 @@ import MentorFilter from "./controllers/mentor-filter/MentorFilter";
 import mentorsList from "./data/mentors.json";
 import useLocalStorageToggle from "./hooks/useLocalStorageToggle";
 
-const useStyles = makeStyles(() => ({
-  cardsWrapper: {
-    maxWidth: 1200,
-  },
+const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  
   containerMain: {
-    padding: 24,
+    paddingTop: theme.spacing(4),
   },
 }));
 
@@ -45,6 +45,7 @@ function App() {
     []
   );
   const [isFavMentors, setIsFavMentors] = useState(false);
+
   useEffect(() => {
     const isDarkMode = JSON.parse(localStorage.getItem("codehood_darkmode"));
     if (isDarkMode != null) {
@@ -173,11 +174,12 @@ function App() {
   };
 
   return (
-    <div className='App'>
-      <ThemeProvider theme={appliedTheme}>
-        <CssBaseline />
-        <AppBar position='static' className={classes.appBar}>
-          <Toolbar>
+    <ThemeProvider theme={appliedTheme}>
+      <CssBaseline />
+
+      <AppBar position="static" className={classes.appBar}>
+        <Container maxWidth='lg'>
+          <Toolbar disableGutters>
             <Typography
               variant={window.innerWidth < 637 ? "h6" : "h4"}
               className={classes.title}
@@ -204,9 +206,15 @@ function App() {
               />
             </FormGroup>
           </Toolbar>
-        </AppBar>
-        <Grid container spacing={2} className={classes.containerMain}>
-          <Grid container item xs={12} md={3}>
+        </Container>
+      </AppBar>
+
+      <Container maxWidth='lg' component="main" className={classes.containerMain}>
+
+        <Grid container spacing={2} className=''>
+
+          <Grid item xs={12} md={3}>
+
             <MentorFilter
               mentors={mentors}
               filterMentors={filterMentors}
@@ -219,7 +227,9 @@ function App() {
               choseFavMentors={choseFavMentors}
               isFavMentors={isFavMentors}
             />
+
           </Grid>
+
           <Grid
             container
             item
@@ -227,8 +237,7 @@ function App() {
             md={9}
             spacing={2}
             justify={window.innerWidth < 637 ? "center" : "flex-start"}
-            alignContent='flex-start'
-            className={classes.cardsWrapper}
+            alignContent="flex-start"
           >
             {mentors.map((mentor, index) => (
               <Grid item key={index}>
@@ -242,9 +251,12 @@ function App() {
               </Grid>
             ))}
           </Grid>
+
         </Grid>
-      </ThemeProvider>
-    </div>
+
+      </Container>
+
+    </ThemeProvider>
   );
 }
 
