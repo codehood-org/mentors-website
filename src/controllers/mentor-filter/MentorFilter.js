@@ -95,6 +95,9 @@ const MentorFilter = (props) => {
   const handleSkillClear = () => {
     choseSkill("");
   };
+  const handleNameClear = () => {
+    searchByMentorName("");
+  };
   const handleCountryClear = () => {
     choseCountry("");
   };
@@ -111,10 +114,34 @@ const MentorFilter = (props) => {
               value={name}
               variant="outlined"
               label="Name"
+              select
               helperText="Filter mentors by name"
               onChange={handleNameSearch}
               fullWidth
-            />
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    {name && (
+                      <IconButton
+                        aria-label="clear filter"
+                        className={classes.clearBtn}
+                        onClick={handleNameClear}
+                        edge="end"
+                      >
+                        <ClearIcon />
+                      </IconButton>
+                    )}
+                  </InputAdornment>
+                ),
+              }}
+              
+            >
+              {mentors.map((mentor) => (
+              <MenuItem key={mentor.id} value={mentor.name}>
+                {mentor.name}
+              </MenuItem>
+            ))}
+            </TextField>
         </Grid>
         <Grid item xs={12}>
           {/*FILTER BY SKILLS */}
