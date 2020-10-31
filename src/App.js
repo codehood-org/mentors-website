@@ -1,26 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+
 import {
   Container,
   Grid,
-  AppBar,
-  Toolbar,
-  FormGroup,
-  FormControlLabel,
-  Switch,
-  Typography,
   makeStyles,
   createMuiTheme,
   ThemeProvider,
   CssBaseline,
-  spac
 } from "@material-ui/core";
-import DarkIcon from "@material-ui/icons/Brightness4";
-import LightIcon from "@material-ui/icons/Brightness7";
+
 import MentorCard from "./controllers/mentor-card/MentorCard";
 import MentorFilter from "./controllers/mentor-filter/MentorFilter";
 import mentorsList from "./data/mentors.json";
 import useLocalStorageToggle from "./hooks/useLocalStorageToggle";
+import AppHeader from './components/AppHeader';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -177,37 +171,7 @@ function App() {
     <ThemeProvider theme={appliedTheme}>
       <CssBaseline />
 
-      <AppBar position="static" className={classes.appBar}>
-        <Container maxWidth='lg'>
-          <Toolbar disableGutters>
-            <Typography
-              variant={window.innerWidth < 637 ? "h6" : "h4"}
-              className={classes.title}
-            >
-              Codehood Mentors
-            </Typography>
-            <FormGroup>
-              <FormControlLabel
-                control={
-                  <Switch
-                    color='default'
-                    checked={darkMode}
-                    onChange={handleModeChange}
-                    aria-label={darkMode ? "Light Mode" : "Dark Mode"}
-                  />
-                }
-                label={
-                  darkMode ? (
-                    <LightIcon htmlColor='#ffffff' />
-                  ) : (
-                    <DarkIcon htmlColor='#ffffff' />
-                  )
-                }
-              />
-            </FormGroup>
-          </Toolbar>
-        </Container>
-      </AppBar>
+      <AppHeader darkMode={darkMode} ModeChange={handleModeChange} />
 
       <Container maxWidth='lg' component="main" className={classes.containerMain}>
 
