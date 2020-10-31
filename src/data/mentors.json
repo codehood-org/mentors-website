@@ -2,9 +2,9 @@
   {
     "id": 0,
     "name": "Islam Sayed",
-    "title": "full-stack developer",
+    "title": "Front End developer",
     "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
-    "skills": ["html", "css", "javascript"],
+    "skills": ["html", "css", "javascript" ,"reactjs"],
     "countryAlpha2Code": "EG",
     "country": "Egypt",
     "twitter": "islam_sayed8"
@@ -12,11 +12,11 @@
   {
     "id": 1,
     "name": "Yahia Harony",
-    "title": "javascript developer",
+    "title": "Front End developer",
     "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
-    "skills": ["nodejs", "reactjs", "javascript"],
-    "countryAlpha2Code": "LB",
-    "country": "Lebanon",
+    "skills": ["nodejs", "reactjs", "javascript","Angular 2+" ,"HTML","CSS"],
+    "countryAlpha2Code": "EG",
+    "country": "Egypt",
     "twitter": "yahya_elharony"
   },
   {
@@ -24,19 +24,19 @@
     "name": "Mohamed Emad",
     "title": "full-stack developer",
     "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
-    "skills": ["html", "css", "javascript", "react native"],
-    "countryAlpha2Code": "MA",
-    "country": "Morocco",
+    "skills": ["html", "css", "javascript", "react native","php","wordpress"],
+    "countryAlpha2Code": "EG",
+    "country": "Egypt",
     "twitter": "mohamednajiub"
   },
   {
     "id": 3,
-    "name": "Mohammed Riad",
+    "name": "Mohammed Riaad",
     "title": ".Net developer",
     "message": "I can help you answer questions and explain difficuilt systems in simple terms.",
-    "skills": [".net", "c#", "javascript"],
-    "countryAlpha2Code": "SA",
-    "country": "Saudi Arabia",
+    "skills": [".net", "c#", "javascript","MVC",".net Core","SQL","No Sql","nodejs"],
+    "countryAlpha2Code": "EG",
+    "country": "Egypt",
     "twitter": "Mohamed_Riaad"
   },
   {
